@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erro.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:40:27 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/29 09:50:29 by agathabarro      ###   ########.fr       */
+/*   Created: 2023/09/27 15:31:25 by agathabarro       #+#    #+#             */
+/*   Updated: 2023/09/27 17:00:47 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	error(char *msg)
+/*
+ * Converts the initial portion of the string 
+ * pointed to by str to int representation. 
+ */
+long	ft_atoi(const char *str)
 {
-	(void)msg;
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
-
-void	free_string(char **str)
-{
-	int	i;
+	long	i;
+	long	nb;
+	int		sign;
 
 	i = 0;
-	while (str[i])
+	nb = 0;
+	sign = 1;
+	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
 		i++;
-	while (i >= 0)
+	if (str[i] == '-' || str[i] == '+')
 	{
-		free(str[i]);
-		i--;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	free(str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
 }

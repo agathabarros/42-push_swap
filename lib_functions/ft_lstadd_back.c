@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erro.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:40:27 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/29 09:50:29 by agathabarro      ###   ########.fr       */
+/*   Created: 2023/09/28 16:01:05 by agathabarro       #+#    #+#             */
+/*   Updated: 2023/09/28 16:03:42 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	error(char *msg)
+void	ft_lstadd_back(t_stack **stack, t_stack *new)
 {
-	(void)msg;
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
+	t_stack	*last;
 
-void	free_string(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
+	if (!*stack)
 	{
-		free(str[i]);
-		i--;
+		*stack = new;
+		return ;
 	}
-	free(str);
+	last = ft_lstlast(*stack);
+	last->next = new;
+	new->next = NULL;
 }

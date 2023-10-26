@@ -1,40 +1,81 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MAKEFILE                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/17 12:11:09 by agathabarro       #+#    #+#              #
-#    Updated: 2023/09/17 15:27:28 by agathabarro      ###   ########.fr        #
+#    Updated: 2023/09/28 16:48:29 by agathabarro      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+# FIRST STEPS
+CC = cc -g
+CFLAGS = -Wall -Wextra -Werror -g3
+RM = rm -rf
+GDB = gdb
+VAL = valgrind --leak-check=full --track-origin=yes
 
-SRC = src/push_swap.c src/utils.c src/create_stack.c
+#colors
+RESET   := \033[0m
+GREEN   := \033[32m
+CYAN    := \033[1;36m
+YELLOW  := \033[33m
+BLUE    := \033[34m
+WHITE   := \033[0m
+RED     := \033[1;31m
+BOLD    := \033[1m
+# PUSH_SWAP
 
-OBJS = ${SRC:.c=.o}
+NAME = push_swap.a
+SRCS =	./lib_functions/ft_atoi.c \
+        ./lib_functions/ft_lstadd_back.c \
+        ./lib_functions/ft_lstlast.c \
+        ./lib_functions/ft_lstnew.c \
+        ./lib_functions/ft_lstsize.c \
+		./lib_functions/ft_isdigit.c \
+        ./operations/push.c \
+        ./operations/reverse.c \
+        ./operations/rotate.c \
+        ./operations/swap.c \
+        ./utils/erro.c \
+        ./utils/utils.c \
+        ./utils/check.c \
+		./push_swap.c
 
-CC = cc
-RM = rm - f 
-CFLAGS = -Wall -Wextra -Werror -g
-INCLUDE = -I include
+OBJSDIR = objects
+OBJS = $(addprefix $(OBJSDIR)/,$(SRCS:.c=.o))
 
-.c.o:
-		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
+# MAKE RULES
 
-$(NAME): ${OBJS}
-				${CC} ${CFLAGS} ${INCLUDE} ${OBJS} -o ${NAME}
+all: $(NAME) push_swap
 
-all: ${NAME}
+$(NAME): $(OBJS)
+	@echo "$(GREEN)$(BOLD)Creating objects directory...$(RESET)"
+	ar -rcs $(NAME) $(OBJS)
+	@echo "$(GREEN)$(BOLD)Objects created!$(RESET)"
+	
+$(OBJSDIR)/%.o: %.c
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+push_swap: $(PUSH_SWAP_OBJ) $(NAME)
+	@echo "$(GREEN)$(BOLD)Creating executable...$(RESET)"
+	$(CC) $(CFLAGS) $(PUSH_SWAP_OBJ) $(NAME) -o push_swap
+	@echo "$(GREEN)$(BOLD)Executable created!$(RESET)"
 
 clean:
-			${RM} ${OBJS}
+	@echo "$(YELLOW)$(BOLD)Removing objects...$(RESET)"
+	$(RM) $(OBJSDIR)
+	@echo "$(YELLOW)$(BOLD)Objects removed!$(RESET)"
 
 fclean: clean
-			${RM} ${NAME}
+	@echo "$(RED)$(BOLD)Removing executable...$(RESET)"
+	$(RM) push_swap push_swap.a
+	@echo "$(RED)$(BOLD)Executable removed!$(RESET)"
 
 re: fclean all
+	@echo "$(GREEN)$(BOLD)Recompiled successfully!$(RESET)"
 
-.PHONY: all clean fclean re
+.SILENT:

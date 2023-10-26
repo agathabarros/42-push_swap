@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erro.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:40:27 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/29 09:50:29 by agathabarro      ###   ########.fr       */
+/*   Created: 2023/09/27 15:51:21 by agathabarro       #+#    #+#             */
+/*   Updated: 2023/09/27 17:01:27 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+/*
+ * Returns the number of elements in the list. 
+ */
 
-void	error(char *msg)
+int	ft_lstsize(t_stack *head)
 {
-	(void)msg;
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
+	size_t	i;
+	t_stack	*tmp;
 
-void	free_string(char **str)
-{
-	int	i;
-
+	tmp = head;
 	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
+	while (tmp)
 	{
-		free(str[i]);
-		i--;
+		tmp = tmp->next;
+		i++;
 	}
-	free(str);
+	return (i);
 }

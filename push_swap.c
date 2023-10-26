@@ -6,45 +6,54 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:01:21 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/18 21:12:30 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/09/28 16:12:02 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
-int void int_s(t_stack **stack, int ac, char **av)
+static void	main_index(t_stack **stack, int ac, char **av)
 {
-    t_stack *new;
-    char **args;
-    int i;
-    
-    i = 0;
-    while (args[i])
-    {
-        new = ft_lstnew(ft_atoi(args[i]));
-        ft_lstadd_back(stack, new);
-        i++;
-    }
+	t_stack	*new;
+	int		i;
+
+	i = 0;
+	if (ac == 2)
+	{
+		while (*av[i])
+		{
+			new = ft_lstnew(ft_atoi(av[i]));
+			ft_lstadd_back(stack, new);
+			i++;
+		}
+	}
 }
-int main(int ac, char **av)
-{
-    int size;
-    t_stack *sa;
-    t_stack *sb;
 
-    if(ac < 2)
-        return (-1);
-    checks_args(ac, av);
-    sa = (t_stack *)malloc(sizeof(t_stack));
-    sa = NULL;
-    size = size_stack(sa);
-    main_index(sa, size);
-    while(av)
-    {
-        printf("n = %d\n", sa->n);
-        printf("main_index = %d\n", sa->main_index);
-        sa = sa->next;
-    }
-    free_stack(&sa);
-    free_stack(&sb);
+/*static void	sort_stack(t_stack **stack_a, t_stack **stack_b)
+{
+	if (ft_lstsize(*stack_a) <= 5)
+		simple_sort(stack_a, stack_b);
+	else
+		radix_sort(stack_a, stack_b);
+}*/
+
+int	main(int ac, char **av)
+{
+	t_stack	**sa;
+	t_stack	**sb;
+
+	if (ac < 2)
+		return (-1);
+	checks_args(ac, av);
+	sa = (t_stack **)malloc(sizeof(t_stack));
+	*sa = NULL;
+	main_index(sa, ac, av);
+	if (is_sorted(sa) == 1)
+		exit (EXIT_SUCCESS);
+	sb = (t_stack **)malloc(sizeof(t_stack));
+	*sb = NULL;
+	//sort_stack(stack_a, stack_b);
+	free_stack(sa);
+	free_stack(sb);
+	return (0);
 }
