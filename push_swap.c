@@ -17,7 +17,7 @@ static void	init_stack(t_stack **stack, int ac, char **av)
 	t_stack	*new;
 	int		i;
 
-	i = 0;
+	i = 1;
 	while (av[i])
 	{
 		new = ft_lstnew(ft_atoi(av[i]));
@@ -25,6 +25,7 @@ static void	init_stack(t_stack **stack, int ac, char **av)
 		i++;
 	}
 	index_stack(stack);
+
 	if (ac == 2)
 	{
 		free_string(av);
@@ -69,7 +70,7 @@ int	main(int ac, char **av)
 	*sb = NULL;
 	sort_stack(sa, sb);
 	//printf("Stack A: ");
-	print_stack(*sa);
+	//print_stack(*sa);
 	//printf("Stack B: ");
 	//print_stack(*sb);
 	free_stack(sa);
