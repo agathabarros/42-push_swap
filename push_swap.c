@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:01:21 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 17:10:00 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/30 14:02:45 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ static void	init_stack(t_stack **stack, int ac, char **av)
 	while (av[i])
 	{
 		new = ft_lstnew(ft_atoi(av[i]));
+		if (!new)
+			exit (EXIT_FAILURE);
 		ft_lstadd_back(stack, new);
 		i++;
 	}
 	index_stack(stack);
-
 	if (ac == 2)
 	{
 		free_string(av);
+	}
+	else 
+	{
+		free(av);
 	}
 }
 

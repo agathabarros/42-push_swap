@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:40:27 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/29 09:50:29 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/30 14:05:06 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ void	free_string(char **str)
 
 	i = 0;
 	while (str[i])
-		i++;
-	while (i >= 0)
 	{
 		free(str[i]);
-		i--;
+		i++;
 	}
 	free(str);
 }
