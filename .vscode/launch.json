@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Debug",
-            "type": "gdb",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
             "args": ["1", "8", "2", "7", "3", "6", "4", "5"],
