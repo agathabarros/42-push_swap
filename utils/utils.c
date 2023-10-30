@@ -6,20 +6,12 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:32:49 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/29 09:51:47 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/27 17:26:48 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		write(1, &str, 1);
-		str++;
-	}
-}
 /*
 
 */
@@ -39,16 +31,73 @@ void	free_stack(t_stack **lst)
 	*lst = NULL;
 }
 
-int	is_sorted(t_stack **stack)
+int	distance_to_top(t_stack **stack, int index)
 {
-	t_stack	*head;
+	t_stack	*top;
+	int		distance;
 
-	head = *stack;
-	while (head && head->next)
+	top = *stack;
+	distance = 0;
+	while (top)
 	{
-		if (head->value > head->next->value)
-			return (0);
-		head = head->next;
+		if (top->index == index)
+			break ;
+		distance++;
+		top = top->next;
 	}
-	return (1);
+	return (distance);
+}
+
+static t_stack	*get_next_min(t_stack **stack)
+{
+	t_stack		*top;
+	t_stack		*min;
+	int			has_min;
+
+	min = NULL;
+	has_min = 0;
+	top = *stack;
+	if (top)
+	{
+		while (top)
+		{
+			if ((top->index == -1) && (!has_min || top->value < min->value))
+			{
+				min = top;
+				has_min = 1;
+			}
+			top = top->next;
+		}
+	}
+	return (min);
+}
+
+int	get_min(t_stack **stack, int size)
+{
+	t_stack		*top;
+	int			min;
+
+	top = *stack;
+	min = top->index;
+	while (top->next)
+	{
+		top = top->next;
+		if ((top->index < min) && top->index != size)
+			min = top->index;
+	}
+	return (min);
+}
+
+void	index_stack(t_stack **stack)
+{
+	t_stack	*top;
+	int		index;
+
+	index = 0;
+	top = get_next_min(stack);
+	while (top)
+	{
+		top->index = index++;
+		top = get_next_min(stack);
+	}
 }

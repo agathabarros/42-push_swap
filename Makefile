@@ -6,7 +6,7 @@
 #    By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/17 12:11:09 by agathabarro       #+#    #+#              #
-#    Updated: 2023/09/28 16:48:29 by agathabarro      ###   ########.fr        #
+#    Updated: 2023/10/27 13:39:27 by agathabarro      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,13 @@ SRCS =	./lib_functions/ft_atoi.c \
         ./lib_functions/ft_lstnew.c \
         ./lib_functions/ft_lstsize.c \
 		./lib_functions/ft_isdigit.c \
+		./lib_functions/ft_putstr.c \
         ./operations/push.c \
+        ./operations/radix_sort.c \
         ./operations/reverse.c \
         ./operations/rotate.c \
+        ./operations/simple_sort.c \
+        ./operations/sort_small.c \
         ./operations/swap.c \
         ./utils/erro.c \
         ./utils/utils.c \

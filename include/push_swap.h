@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:05:10 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/28 16:04:07 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/27 16:56:21 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>// WRITE
 # include <stdlib.h>// MALLOC
 # include <limits.h>// INT_MIN & INT_MAX
+# include <stdio.h>// PRINTF
 
 typedef struct s_stack
 {
@@ -26,7 +27,9 @@ typedef struct s_stack
 
 //**----------utils/utils----------**/
 void		free_stack(t_stack **lst);
-void		ft_putstr(char *str);
+void		index_stack(t_stack **stack);
+int			get_min(t_stack **stack, int size);
+int			distance_to_top(t_stack **stack, int index);
 
 //**----------utils/check----------**/
 void		checks_args(int ac, char **av);
@@ -49,6 +52,11 @@ int			rra(t_stack **sa);
 int			rrb(t_stack **sb);
 int			rrr(t_stack **sa, t_stack **sb);
 int			index_distance_head(t_stack **stack, int index);
+void		sort_3(t_stack **sa);
+void		sort_4(t_stack **stack_a, t_stack **stack_b);
+void		sort_5(t_stack **stack_a, t_stack **stack_b);
+void		simple_sort(t_stack **stack_a, t_stack **stack_b);
+void		radix_sort(t_stack **sa, t_stack **sb);
 
 //**----------lib_functions----------**/
 size_t		ft_strlen(const char *str);

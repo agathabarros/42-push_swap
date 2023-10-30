@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:48:53 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/27 16:48:22 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/27 16:47:33 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,15 @@ static int	push(t_stack **stack_to, t_stack **stack_from)
 	if (!head_to)
 	{
 		head_to = tmp;
+		head_to->next = NULL;
+		*stack_to = head_to;
 	}
-	tmp->next = *stack_to;
-	*stack_to = tmp;
-	return (1);
+	else
+	{
+		tmp->next = head_to;
+		*stack_to = tmp;
+	}
+	return (0);
 }
 
 int	pa(t_stack **stack_a, t_stack **stack_b)

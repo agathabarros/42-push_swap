@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:57:20 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/28 16:44:12 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/10/27 16:53:31 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ static int	ft_isnum(char *num)
 
 	i = 0;
 	if (num[0] == '-' || num[0] == '+')
+	{
 		i++;
+	}
 	if ((num[0] == '-' || num[0] == '+') && !num[1])
+	{
 		return (0);
+	}
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -50,22 +56,35 @@ static int	ft_isnum(char *num)
 
 void	checks_args(int ac, char **av)
 {
-	int		i;
+	long	i;
 	long	tmp;
 
 	i = 1;
-	if (ac == 2)
+	while (av[i])
 	{
-		while (av[i])
-		{
-			tmp = ft_atoi(av[i]);
-			if (!ft_isnum(av[i]))
-				error("Error");
-			if (contains(tmp, av, i) == 1)
-				error("Error");
-			if (tmp > INT_MAX || tmp < INT_MIN)
-				error("Error");
-			i++;
-		}
+		tmp = ft_atoi(av[i]);
+		if (!ft_isnum(av[i]))
+			error("Error");
+		if (contains(tmp, av, i) == 1)
+			error("Error");
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			error("Error");
+		i++;
 	}
+	if (ac == 2)
+		free_string(av);
+}
+
+int	is_sorted(t_stack **stack)
+{
+	t_stack	*head;
+
+	head = *stack;
+	while (head && head->next)
+	{
+		if (head->value > head->next->value)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
