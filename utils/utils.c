@@ -12,22 +12,21 @@
 
 #include "../include/push_swap.h"
 
-/*
-
-*/
+/**/
 
 void	free_stack(t_stack **lst)
 {
 	t_stack	*tmp;
+	t_stack *top;
 
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
+	top = *lst;
+	while (top)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		tmp = top;
+		top = top ->next;
+		free(tmp);
 	}
+	free(lst);
 }
 
 int	distance_to_top(t_stack **stack, int index)

@@ -17,6 +17,7 @@ void	error(char *msg)
 	(void)msg;
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+	
 }
 
 void	free_string(char **str)
@@ -25,9 +26,11 @@ void	free_string(char **str)
 
 	i = 0;
 	while (str[i])
+		i++;
+	while (i >= 0)
 	{
 		free(str[i]);
-		i++;
+		i--;
 	}
 	free(str);
 }

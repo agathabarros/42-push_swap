@@ -31,10 +31,6 @@ static void	init_stack(t_stack **stack, int ac, char **av)
 	{
 		free_string(av);
 	}
-	else 
-	{
-		free(av);
-	}
 }
 
 static void	sort_stack(t_stack **stack_a, t_stack **stack_b)
@@ -63,7 +59,7 @@ int	main(int ac, char **av)
 	t_stack	**sa;
 	t_stack	**sb;
 
-	if (ac < 2)
+	if (ac <= 2)
 		return (-1);
 	checks_args(ac, av);
 	sa = (t_stack **)malloc(sizeof(t_stack));
