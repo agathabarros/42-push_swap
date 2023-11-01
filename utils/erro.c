@@ -17,7 +17,6 @@ void	error(char *msg)
 	(void)msg;
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
-	
 }
 
 void	free_string(char **str)

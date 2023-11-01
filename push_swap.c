@@ -12,7 +12,7 @@
 
 #include "include/push_swap.h"
 
-static void	init_stack(t_stack **stack, int ac, char **av)
+static void	init_stack(t_stack **stack, char **av)
 {
 	t_stack	*new;
 	int		i;
@@ -27,10 +27,6 @@ static void	init_stack(t_stack **stack, int ac, char **av)
 		i++;
 	}
 	index_stack(stack);
-	if (ac == 2)
-	{
-		free_string(av);
-	}
 }
 
 static void	sort_stack(t_stack **stack_a, t_stack **stack_b)
@@ -64,16 +60,15 @@ int	main(int ac, char **av)
 	checks_args(ac, av);
 	sa = (t_stack **)malloc(sizeof(t_stack));
 	*sa = NULL;
-	init_stack(sa, ac, av);
+	init_stack(sa, av);
 	if (is_sorted(sa) == 1)
+	{
+		free_stack(sa);
 		exit (EXIT_SUCCESS);
+	}
 	sb = (t_stack **)malloc(sizeof(t_stack));
 	*sb = NULL;
 	sort_stack(sa, sb);
-	//printf("Stack A: ");
-	//print_stack(*sa);
-	//printf("Stack B: ");
-	//print_stack(*sb);
 	free_stack(sa);
 	free_stack(sb);
 	return (0);

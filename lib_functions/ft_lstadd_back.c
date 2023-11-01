@@ -23,8 +23,8 @@ void	ft_lstadd_back(t_stack **stack, t_stack *new)
 		new->next = NULL;
 	}
 	else
-	{	
+	{
 		*stack = new;
-		(*stack) ->next =NULL;
+		(*stack)->next = NULL;
 	}
 }

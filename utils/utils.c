@@ -17,13 +17,13 @@
 void	free_stack(t_stack **lst)
 {
 	t_stack	*tmp;
-	t_stack *top;
+	t_stack	*top;
 
 	top = *lst;
 	while (top)
 	{
 		tmp = top;
-		top = top ->next;
+		top = top->next;
 		free(tmp);
 	}
 	free(lst);
