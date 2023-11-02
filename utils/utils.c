@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:32:49 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/30 14:04:22 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 16:29:31 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	distance_to_top(t_stack **stack, int index)
 	t_stack	*top;
 	int		distance;
 
-	top = *stack;
 	distance = 0;
+	top = *stack;
 	while (top)
 	{
 		if (top->index == index)

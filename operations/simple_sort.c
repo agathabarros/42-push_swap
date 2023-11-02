@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:23:11 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 16:51:29 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 17:49:19 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,13 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 	sort_4(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
-
+/*
+* simple_sort() sorts the stack if it has 5 or less elements.
+* If the stack has 2 elements, it swaps them.
+* If the stack has 3 elements, it sorts them.
+* If the stack has 4 elements, it sorts the first 3 elements and then
+* pushes the last element to stack b, sorts the 3 elements in stack a
+*/
 void	simple_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;

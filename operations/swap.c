@@ -6,12 +6,14 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:15:31 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/28 16:35:34 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 13:51:08 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// swap the first two elements of the stack
+// the first element becomes the second
 static int	swap(t_stack **stack)
 {
 	t_stack	*head;

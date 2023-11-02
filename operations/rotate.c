@@ -6,12 +6,13 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:15:29 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 13:39:52 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 13:50:42 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// rotate the stack
 static int	rotate(t_stack **stack)
 {
 	t_stack	*head;

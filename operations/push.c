@@ -6,12 +6,13 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:48:53 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 16:47:33 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 13:46:00 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// push the first element of stack_from to stack_to
 static int	push(t_stack **stack_to, t_stack **stack_from)
 {
 	t_stack	*tmp;

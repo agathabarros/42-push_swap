@@ -6,12 +6,14 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:15:26 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/09/28 16:33:03 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 13:50:27 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// reverse the stack
+// the last element becomes the first
 static int	reverse(t_stack **stack)
 {
 	t_stack	*head;

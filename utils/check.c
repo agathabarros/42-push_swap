@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:57:20 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 16:53:31 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 13:21:38 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ void	checks_args(int ac, char **av)
 		free_string(av);
 }
 
+/*
+* is_sorted() checks if the stack is sorted. 
+*/
 int	is_sorted(t_stack **stack)
 {
 	t_stack	*head;
@@ -82,9 +85,11 @@ int	is_sorted(t_stack **stack)
 	head = *stack;
 	while (head && head->next)
 	{
+		// this condtion checks if the stack is sorted in ascending order.
 		if (head->value > head->next->value)
 			return (0);
 		head = head->next;
 	}
+	// if the stack is sorted in ascending order, it returns 1.
 	return (1);
 }

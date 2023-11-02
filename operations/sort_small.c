@@ -6,7 +6,7 @@
 /*   By: agathabarros <agathabarros@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:07:56 by agathabarro       #+#    #+#             */
-/*   Updated: 2023/10/27 17:20:50 by agathabarro      ###   ########.fr       */
+/*   Updated: 2023/11/01 17:36:10 by agathabarro      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ static void	sort_231(t_stack **stack_a, t_stack *top, int min)
 
 static void	sort_312(t_stack **stack_a, t_stack *top, int min)
 {
+	// if the top is the min, rotate
 	if (top->next->index == min)
-		sa(stack_a);
+		ra(stack_a);
 	else
 	{
 		sa(stack_a);
