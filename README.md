@@ -2,6 +2,8 @@
 <p align="center">
   <img src="https://github.com/agathabarros/42-project-badges/blob/main/badges/push_swape.png"/>
 </p>
+
+## *Grade: 84 / 100*
 Pushswap is a project that you may encounter in your coding journey. Its purpose is to teach you some basic operations in data structures, specifically stacks. It focuses on the concept of sorting data in a stack using a limited set of operations.
 
 ## Installation
