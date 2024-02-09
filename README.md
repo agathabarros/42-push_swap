@@ -1,4 +1,4 @@
-# PUSHSWAP
+# PUSH_SWAP
 
 Pushswap is a project that you may encounter in your coding journey. Its purpose is to teach you some basic operations in data structures, specifically stacks. It focuses on the concept of sorting data in a stack using a limited set of operations.
 
