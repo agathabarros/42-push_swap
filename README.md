@@ -7,7 +7,7 @@ Pushswap is a project that you may encounter in your coding journey. Its purpose
 To get started, clone the repository and compile the project:
 
 ```bash
-git clone https://github.com/yourusername/pushswap.git
+git clone https://github.com/agathabarros/42-push_swap.git
 cd pushswap
 make 
 ```
