@@ -2,7 +2,7 @@
 
 Pushswap is a project that you may encounter in your coding journey. Its purpose is to teach you some basic operations in data structures, specifically stacks. It focuses on the concept of sorting data in a stack using a limited set of operations.
 
-# Installation
+## Installation
 
 To get started, clone the repository and compile the project:
 
@@ -12,7 +12,7 @@ cd pushswap
 make 
 ```
 
-# Usage
+## Usage
 
 Execute the program using the following command:
 
@@ -20,11 +20,11 @@ Execute the program using the following command:
 ./push_swap [list of integers]
 ```
 
-# Arguments:
+### Arguments:
 
 list of integers: A sequence of different integers that will be sorted.
 
-# Example:
+### Example:
 
 ```bash
 ./push_swap 3 2 1 6 5 8
